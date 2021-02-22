@@ -23,6 +23,12 @@
                     </command>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
+                <item guid="18759f71-1636-4c77-a883-074842dfff52" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>print(param(&apos;projName&apos;))</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
             </steps>
         </item>
     </procedures>
