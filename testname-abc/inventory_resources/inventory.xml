@@ -1,54 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <inventory format-version="1.0">
-	<templates>
-		<template>
-			<id>5ef59313-8148-437e-a7e5-aeceb07ad4bc</id>
-			<revisionId>5ef59313-8148-437e-a7e5-aeceb07ad4bc</revisionId>
-			<name>T Port</name>
-			<description></description>
-			<isTemplate>true</isTemplate>
-			<type>PORT</type>
-			<interfaceType>NONE</interfaceType>
-			<utilizationType>SHARED</utilizationType>
-			<reservationTime>IMMEDIATE</reservationTime>
-			<isCustomReservationTime>false</isCustomReservationTime>
-			<properties>
-				<property>
-					<name>prop1</name>
-					<description></description>
-					<datatype>STRING</datatype>
-					<widgetType>TEXT_FIELD</widgetType>
-					<value>123</value>
-					<required>false</required>
-					<group>088c545f-4b5a-4465-97af-25866ab85cac</group>
-					<seqNo>1</seqNo>
-					<encrypted>false</encrypted>
-				</property>
-				<property>
-					<name>prop2</name>
-					<description></description>
-					<datatype>STRING</datatype>
-					<widgetType>TEXT_FIELD</widgetType>
-					<value>abc</value>
-					<required>false</required>
-					<group>088c545f-4b5a-4465-97af-25866ab85cac</group>
-					<seqNo>2</seqNo>
-					<encrypted>false</encrypted>
-				</property>
-			</properties>
-			<propertyGroups>
-				<propertyGroup>
-					<id>088c545f-4b5a-4465-97af-25866ab85cac</id>
-					<name>PG</name>
-					<seqNo>1</seqNo>
-					<isHidden>false</isHidden>
-				</propertyGroup>
-			</propertyGroups>
-			<icon/>
-			<defaultImageAttach/>
-			<defaultConfigAttach/>
-		</template>
-	</templates>
 	<orchestratedResources>
 		<orchestratedResource>
 			<id>13b3152a-0b64-4692-a40a-f8de225d6acd</id>
@@ -170,8 +121,4 @@
 			</nestedResources>
 		</orchestratedResource>
 	</orchestratedResources>
-	<abstractResources>
-	</abstractResources>
-	<topologies>
-	</topologies>
 </inventory>
