@@ -62,13 +62,6 @@
 			<resourceGroup>
 				<name></name>
 			</resourceGroup>
-			<icon>
-				<attachment>
-					<id>a793288c-2381-45ad-b954-aabc375782b7</id>
-					<name>920x920.jpg</name>
-					<contentType>image/jpeg</contentType>
-				</attachment>
-			</icon>
 			<nestedResources>
 				<orchestratedResource>
 					<id>7555694b-e37a-491c-a85a-9945430900ca</id>
@@ -81,13 +74,6 @@
 					<resourceGroup>
 						<name>RG1</name>
 					</resourceGroup>
-					<icon>
-						<attachment>
-							<id>a793288c-2381-45ad-b954-aabc375782b7</id>
-							<name>920x920.jpg</name>
-							<contentType>image/jpeg</contentType>
-						</attachment>
-					</icon>
 					<nestedResources>
 						<orchestratedResource>
 							<id>4a45a8a6-447e-468b-bf31-3bcc06afb9ad</id>
@@ -100,13 +86,6 @@
 							<resourceGroup>
 								<name>RG1</name>
 							</resourceGroup>
-							<icon>
-								<attachment>
-									<id>a793288c-2381-45ad-b954-aabc375782b7</id>
-									<name>920x920.jpg</name>
-									<contentType>image/jpeg</contentType>
-								</attachment>
-							</icon>
 							<nestedResources>
 								<orchestratedResource>
 									<id>57137ca9-8542-4894-b850-712288f977f5</id>
@@ -211,13 +190,6 @@
 					<reservationTime>IMMEDIATE</reservationTime>
 					<isPublic>true</isPublic>
 					<referencedTemplateId>7c7197dc-8cff-4267-b97e-62fda6d9330c</referencedTemplateId>
-					<icon>
-						<attachment>
-							<id>a793288c-2381-45ad-b954-aabc375782b7</id>
-							<name>920x920.jpg</name>
-							<contentType>image/jpeg</contentType>
-						</attachment>
-					</icon>
 					<nestedResources>
 						<abstractResource>
 							<id>c5ff400f-5f04-4d55-af26-d6f2bf1ab28d</id>
@@ -242,13 +214,5 @@
 		</abstractResource>
 	</abstractResources>
 	<topologies>
-		<topology>
-			<name>Export</name>
-			<attachment>
-				<id>281d90a5-81c2-4b7d-938f-d6089ac61a00</id>
-				<name>Export</name>
-				<contentType>application/xml</contentType>
-			</attachment>
-		</topology>
 	</topologies>
 </inventory>
