@@ -171,47 +171,6 @@
 		</orchestratedResource>
 	</orchestratedResources>
 	<abstractResources>
-		<abstractResource>
-			<id>11f617ee-3743-419d-809e-7b0cca873d19</id>
-			<type>DEVICE</type>
-			<name>Abs1</name>
-			<description></description>
-			<condition>template[T1]</condition>
-			<reservationTime>IMMEDIATE</reservationTime>
-			<isPublic>true</isPublic>
-			<icon/>
-			<nestedResources>
-				<abstractResource>
-					<id>6822ee0c-5308-45c3-b687-a12f8f613b08</id>
-					<type>DEVICE</type>
-					<name>Abs2</name>
-					<description></description>
-					<condition>template[T2]</condition>
-					<reservationTime>IMMEDIATE</reservationTime>
-					<isPublic>true</isPublic>
-					<referencedTemplateId>7c7197dc-8cff-4267-b97e-62fda6d9330c</referencedTemplateId>
-					<nestedResources>
-						<abstractResource>
-							<id>c5ff400f-5f04-4d55-af26-d6f2bf1ab28d</id>
-							<type>DEVICE</type>
-							<name>Abs3</name>
-							<description></description>
-							<condition>template[T3]</condition>
-							<reservationTime>IMMEDIATE</reservationTime>
-							<isPublic>true</isPublic>
-							<referencedTemplateId>6ac58bb7-b61b-45c0-a8fc-3f2483f557ae</referencedTemplateId>
-							<icon>
-								<attachment>
-									<id>a793288c-2381-45ad-b954-aabc375782b7</id>
-									<name>920x920.jpg</name>
-									<contentType>image/jpeg</contentType>
-								</attachment>
-							</icon>
-						</abstractResource>
-					</nestedResources>
-				</abstractResource>
-			</nestedResources>
-		</abstractResource>
 	</abstractResources>
 	<topologies>
 	</topologies>
