@@ -1,23 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <inventory format-version="1.0">
 	<templates>
-	<template>
-			<id>a6792f0a-190d-4ca5-9459-099f4e1aa898</id>
-			<revisionId>a6792f0a-190d-4ca5-9459-099f4e1aa898</revisionId>
-			<name>T1.N-Additional</name>
-			<description>Description</description>
-			<isTemplate>true</isTemplate>
-			<driverId>d0c0273c-8f6a-45f6-a232-40c115879aae</driverId>
-			<type>DEVICE</type>
-			<interfaceType>ORCHESTRATION</interfaceType>
-			<utilizationType>EXCLUSIVE</utilizationType>
-			<reservationTime>IMMEDIATE</reservationTime>
-			<isCustomReservationTime>false</isCustomReservationTime>
-			<properties>
-			</properties>
-			<children>
-			</children>
-		</template>
 		<template>
 			<id>79d2ccd3-6a77-46df-ac89-eaa3c6fea153</id>
 			<revisionId>79d2ccd3-6a77-46df-ac89-eaa3c6fea153</revisionId>
