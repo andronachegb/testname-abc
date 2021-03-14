@@ -7,26 +7,15 @@
     <procedures>
         <item name="main">
             <steps>
-                <item guid="af434d81-b115-4006-b38f-20acfc00a0e4" action="open" session="s1">
+                <item guid="7699c0a8-3cf7-4069-a9c4-9bac21a7dd45" action="eval" useFieldsInCommand="false">
                     <command>
-                        <body>project://testname-abc-second/session_profiles/REST.ffsp</body>
-                    </command>
-                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
-                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
-                        <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.restful.RESTfulSessionProperties"/>
-                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
-                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
-                    </applicationProperties>
-                </item>
-                <item guid="9f78661d-3541-441c-bcf7-b6d562a0b570" action="proc1" session="s1" useFieldsInCommand="false">
-                    <command>
-                        <body>-argm testing</body>
+                        <body>test = &apos;2021-03-11T07:14:09,629Z INFO  [com.spirent.rlm.api.callback.CallbackApiService] (default task-26) Callback notification received on create/update spirent/testname-def&apos;</body>
                     </command>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="e188ca52-7fb9-4942-ad1b-9175f29015aa" action="open" session="s2" useFieldsInCommand="false">
+                <item guid="10c1ed71-15ab-46e3-9d62-081caba321ca" action="open" session="s2" useFieldsInCommand="false">
                     <command>
-                        <body>project://testname-def-second/session_profiles/REST.ffsp</body>
+                        <body>project://RepoTest1/session_profiles/REST.ffsp</body>
                     </command>
                     <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
                         <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
@@ -35,10 +24,46 @@
                         <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                     </applicationProperties>
                 </item>
-                <item guid="48a2b683-f8fd-4e64-9e40-2394112833ea" action="proc1" session="s2" useFieldsInCommand="false">
+                <item guid="d4390c5d-b358-4556-954f-e4faf678808f" action="proc1" session="s2" useFieldsInCommand="false">
                     <command>
-                        <body>-argm testing</body>
+                        <body>-argm [test]</body>
                     </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="none">
+                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>1 == 1</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message></message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>{auto_message_false}</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                        <storeResponseAt>val</storeResponseAt>
+                        <storeResponseText>true</storeResponseText>
+                    </postProcessing>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
             </steps>
