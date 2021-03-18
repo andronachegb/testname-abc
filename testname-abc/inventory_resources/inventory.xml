@@ -8,7 +8,7 @@
 			<description></description>
 			<isTemplate>true</isTemplate>
 			<driverId>f475a322-9f06-446b-8aec-a43169b216d2</driverId>
-			<l2SwitchId>301aabe9-5f04-4208-b384-93d0b53b32cd</l2SwitchId>
+			<l2SwitchId>29572bb8-4336-4792-b710-6302c026b7de</l2SwitchId>
 			<type>DEVICE</type>
 			<interfaceType>ORCHESTRATION</interfaceType>
 			<utilizationType>SHARED</utilizationType>
