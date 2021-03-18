@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<inventory format-version="1.0">
+	<templates>
+		<template>
+			<id>6e9aaf97-1e86-4efb-89a0-5e933f797e88</id>
+			<revisionId>6e9aaf97-1e86-4efb-89a0-5e933f797e88</revisionId>
+			<name>T1</name>
+			<description></description>
+			<isTemplate>true</isTemplate>
+			<driverId>f475a322-9f06-446b-8aec-a43169b216d2</driverId>
+			<l2SwitchId>301aabe9-5f04-4208-b384-93d0b53b32cd</l2SwitchId>
+			<type>DEVICE</type>
+			<interfaceType>ORCHESTRATION</interfaceType>
+			<utilizationType>SHARED</utilizationType>
+			<reservationTime>IMMEDIATE</reservationTime>
+			<isCustomReservationTime>false</isCustomReservationTime>
+			<icon/>
+			<defaultImageAttach/>
+			<defaultConfigAttach/>
+		</template>
+	</templates>
+	<orchestratedResources/>
+	<abstractResources/>
+	<topologies/>
+</inventory>
