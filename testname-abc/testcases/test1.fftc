@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<testCase version="8.4.0.202012071239">
+    <general>
+        <tags>!test!test!,@test@test@,#test#test#,$test$test$,%test%test%,^test^test^,&amp;test&amp;test&amp;,*test*test*,(test(test(,)test)test),_test_test_,-test-test-,+test+test+,=test=test=,{test{test{,[test[test[,]test]test],\\test\\test\\,|test|test|,:test:test:,:test:test:,&quot;test&quot;test&quot;,&apos;test&apos;test&apos;,&lt;test&lt;test&lt;,&gt;test&gt;test&gt;,.test.test.,?test?test?,/test/test/,~test~test~,`test`test`,test1,test2,test3,test4,test5,test6,test7,test8,test9,test10,test11,test12,test13,test14,test15,5GC-AAP,I-UPF,5GC-002</tags>
+        <language>Python</language>
+    </general>
+    <execution>
+        <parameters version="8.4.0.202012071239">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <loop1>10</loop1>
+                    <loop2>2</loop2>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="c9ba3b09-9bff-46dd-a16e-77e38c1a3045" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>loop1 = int(param(&apos;loop1&apos;)) + 1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="7933eacb-889e-4ba8-8b80-d4f756ddff0c" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>loop2 = int(param(&apos;loop2&apos;)) + 1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="92e2442f-1b7c-4c15-b7fe-b62eb5075146" action="open" session="s1" skip="true">
+                    <command>
+                        <body>application:com.fnfr.itest.applications.webservices.restful</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.restful.RESTfulSessionProperties" url="https://vel-alin84.spirenteng.com" url.inherit="false">
+                            <authentication transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.AuthenticationProperties" authenticationType="Basic" authenticationType.inherit="false" user="spirent" user.inherit="false" password.masked="true" password="SrqvrrOjrgE=" password.inherit="false" acceptAllCertificates="true" acceptAllCertificates.inherit="false"/>
+                        </sessionProperties>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="0a05353e-b886-4cbc-807a-8204dd59ce3b" action="for" useFieldsInCommand="false">
+                    <command>
+                        <body>i in range(1, loop1):</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f2d9acd0-b326-4ced-9dfb-85cfc78a75d1" action="for" useFieldsInCommand="false">
+                            <command>
+                                <body>j in range(1, loop2):</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="14ad4709-e9ab-4208-9eec-e4ff79513a15" action="eval" useFieldsInCommand="false">
+                                    <command>
+                                        <body>print(&quot;1&quot;)</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="881fcfd6-10c8-43eb-9e90-cdd96bc35eba" action="GET" session="s1" skip="true">
+                                    <command>
+                                        <body>/velocity/api/auth/v2/token</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>mapped/Json/xtoken</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="store">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                        <storageLocation>token</storageLocation>
+                                                        <responseValue type="com.fnfr.documents.PropertyBoolean">false</responseValue>
+                                                        <variable type="com.fnfr.documents.PropertyBoolean">true</variable>
+                                                        <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.restful.RESTfulInvokeProperties" action="/velocity/api/auth/v2/token" action.inherit="false"/>
+                                </item>
+                                <item guid="1adde709-98fd-4afc-94d4-2bf87ea07755" action="json" skip="true" useFieldsInCommand="false">
+                                    <command>
+                                        <body>action=&apos;createJson&apos;, documentName=&apos;jsonExec&apos;, fromFile=&apos;false&apos;, jsonString=&apos;{&quot;general&quot;:{&quot;parameterFilePath&quot;:null,&quot;ignoredRequirements&quot;:[],&quot;requirements&quot;:[],&quot;topologyId&quot;:&quot;73945411-da49-4aca-9dcd-66b0d456d350&quot;,&quot;parameters&quot;:[],&quot;detailLevel&quot;:&quot;ALL_ISSUES_ERROR_STEPS&quot;},&quot;main&quot;:{&quot;terminateOnItemFail&quot;:false,&quot;items&quot;:[{&quot;parameterFilePath&quot;:null,&quot;path&quot;:&quot;main/minio_steps/test_cases/test2.fftc&quot;,&quot;ignoredRequirements&quot;:[],&quot;requirements&quot;:[],&quot;parameters&quot;:[{&quot;masked&quot;:false,&quot;name&quot;:&quot;loop1&quot;,&quot;description&quot;:&quot;&quot;,&quot;type&quot;:&quot;TEXT&quot;,&quot;value&quot;:&quot;15&quot;,&quot;parameters&quot;:[]}]},{&quot;parameterFilePath&quot;:null,&quot;path&quot;:&quot;main/minio_steps/test_cases/test2.fftc&quot;,&quot;ignoredRequirements&quot;:[],&quot;requirements&quot;:[],&quot;parameters&quot;:[{&quot;masked&quot;:false,&quot;name&quot;:&quot;loop1&quot;,&quot;description&quot;:&quot;&quot;,&quot;type&quot;:&quot;TEXT&quot;,&quot;value&quot;:&quot;15&quot;,&quot;parameters&quot;:[]}]},{&quot;parameterFilePath&quot;:null,&quot;path&quot;:&quot;main/minio_steps/test_cases/test2.fftc&quot;,&quot;ignoredRequirements&quot;:[],&quot;requirements&quot;:[],&quot;parameters&quot;:[{&quot;masked&quot;:false,&quot;name&quot;:&quot;loop1&quot;,&quot;description&quot;:&quot;&quot;,&quot;type&quot;:&quot;TEXT&quot;,&quot;value&quot;:&quot;15&quot;,&quot;parameters&quot;:[]}]},{&quot;parameterFilePath&quot;:null,&quot;path&quot;:&quot;main/minio_steps/test_cases/test2.fftc&quot;,&quot;ignoredRequirements&quot;:[],&quot;requirements&quot;:[],&quot;parameters&quot;:[{&quot;masked&quot;:false,&quot;name&quot;:&quot;loop1&quot;,&quot;description&quot;:&quot;&quot;,&quot;type&quot;:&quot;TEXT&quot;,&quot;value&quot;:&quot;15&quot;,&quot;parameters&quot;:[]}]},{&quot;parameterFilePath&quot;:null,&quot;path&quot;:&quot;main/minio_steps/test_cases/test2.fftc&quot;,&quot;ignoredRequirements&quot;:[],&quot;requirements&quot;:[],&quot;parameters&quot;:[{&quot;masked&quot;:false,&quot;name&quot;:&quot;loop1&quot;,&quot;description&quot;:&quot;&quot;,&quot;type&quot;:&quot;TEXT&quot;,&quot;value&quot;:&quot;15&quot;,&quot;parameters&quot;:[]}]}]}}&apos;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.execution.builtin.json.JsonPropertiesGroup">
+                                        <action inherit="false">createJson</action>
+                                        <jsonString inherit="false">{&quot;general&quot;:{&quot;parameterFilePath&quot;:null,&quot;ignoredRequirements&quot;:[],&quot;requirements&quot;:[],&quot;topologyId&quot;:&quot;73945411-da49-4aca-9dcd-66b0d456d350&quot;,&quot;parameters&quot;:[],&quot;detailLevel&quot;:&quot;ALL_ISSUES_ERROR_STEPS&quot;},&quot;main&quot;:{&quot;terminateOnItemFail&quot;:false,&quot;items&quot;:[{&quot;parameterFilePath&quot;:null,&quot;path&quot;:&quot;main/minio_steps/test_cases/test2.fftc&quot;,&quot;ignoredRequirements&quot;:[],&quot;requirements&quot;:[],&quot;parameters&quot;:[{&quot;masked&quot;:false,&quot;name&quot;:&quot;loop1&quot;,&quot;description&quot;:&quot;&quot;,&quot;type&quot;:&quot;TEXT&quot;,&quot;value&quot;:&quot;15&quot;,&quot;parameters&quot;:[]}]},{&quot;parameterFilePath&quot;:null,&quot;path&quot;:&quot;main/minio_steps/test_cases/test2.fftc&quot;,&quot;ignoredRequirements&quot;:[],&quot;requirements&quot;:[],&quot;parameters&quot;:[{&quot;masked&quot;:false,&quot;name&quot;:&quot;loop1&quot;,&quot;description&quot;:&quot;&quot;,&quot;type&quot;:&quot;TEXT&quot;,&quot;value&quot;:&quot;15&quot;,&quot;parameters&quot;:[]}]},{&quot;parameterFilePath&quot;:null,&quot;path&quot;:&quot;main/minio_steps/test_cases/test2.fftc&quot;,&quot;ignoredRequirements&quot;:[],&quot;requirements&quot;:[],&quot;parameters&quot;:[{&quot;masked&quot;:false,&quot;name&quot;:&quot;loop1&quot;,&quot;description&quot;:&quot;&quot;,&quot;type&quot;:&quot;TEXT&quot;,&quot;value&quot;:&quot;15&quot;,&quot;parameters&quot;:[]}]},{&quot;parameterFilePath&quot;:null,&quot;path&quot;:&quot;main/minio_steps/test_cases/test2.fftc&quot;,&quot;ignoredRequirements&quot;:[],&quot;requirements&quot;:[],&quot;parameters&quot;:[{&quot;masked&quot;:false,&quot;name&quot;:&quot;loop1&quot;,&quot;description&quot;:&quot;&quot;,&quot;type&quot;:&quot;TEXT&quot;,&quot;value&quot;:&quot;15&quot;,&quot;parameters&quot;:[]}]},{&quot;parameterFilePath&quot;:null,&quot;path&quot;:&quot;main/minio_steps/test_cases/test2.fftc&quot;,&quot;ignoredRequirements&quot;:[],&quot;requirements&quot;:[],&quot;parameters&quot;:[{&quot;masked&quot;:false,&quot;name&quot;:&quot;loop1&quot;,&quot;description&quot;:&quot;&quot;,&quot;type&quot;:&quot;TEXT&quot;,&quot;value&quot;:&quot;15&quot;,&quot;parameters&quot;:[]}]}]}}</jsonString>
+                                        <documentName inherit="false">jsonExec</documentName>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="858e30c0-a9de-4b74-8557-6b66ec90e27a" action="POST" session="s1" skip="true">
+                                    <command>
+                                        <body>/ito/executions/v1/runlists/main%2F_runlists%2FR[i].vrl</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="contains">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                        <searchString>errorId</searchString>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="assert">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                        <expression>value != 1</expression>
+                                                        <actionsWhenTrue>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                                    <message>{auto_message_true}</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                        </actionsWhenTrue>
+                                                        <actionsWhenFalse>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                    <message>{auto_message_false}</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                            <item actionId="FailTest">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                        </actionsWhenFalse>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.restful.RESTfulInvokeProperties" message="[jsonExec]" message.inherit="false" action="/ito/executions/v1/runlists/main%2F_runlists%2FR[i].vrl" action.inherit="false">
+                                        <httpHeader inherit="false" transferableToolId="com.fnfr.itest.applications.webservices.restful">
+                                            <memberClasses>
+                                                <item>com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry</item>
+                                            </memberClasses>
+                                            <item transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry" header="content-type" header.inherit="false" value="application/json" value.inherit="false"/>
+                                            <item transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry" header="x-auth-token" header.inherit="false" value="[token]" value.inherit="false"/>
+                                        </httpHeader>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="b6083847-1837-4a82-b72d-e785226a0163" action="sleep" skip="true">
+                                    <command>
+                                        <body>3</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="3b3aae90-7af0-4599-a787-3cb7fddbfef0" action="comment" useFieldsInCommand="false">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>1 == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>[i]</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>{auto_message_false}</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

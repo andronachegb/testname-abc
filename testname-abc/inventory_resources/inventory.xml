@@ -2,15 +2,33 @@
 <inventory format-version="1.0">
 	<templates>
 		<template>
-			<id>6e9aaf97-1e86-4efb-89a0-5e933f797e88</id>
-			<revisionId>6e9aaf97-1e86-4efb-89a0-5e933f797e88</revisionId>
+			<id>36ea788a-9140-413e-8fe7-89b932a26d05</id>
+			<revisionId>36ea788a-9140-413e-8fe7-89b932a26d05</revisionId>
 			<name>T1</name>
 			<description></description>
 			<isTemplate>true</isTemplate>
-			<driverId>f475a322-9f06-446b-8aec-a43169b216d2</driverId>
-			<l2SwitchId>29572bb8-4336-4792-b710-6302c026b7de</l2SwitchId>
 			<type>DEVICE</type>
-			<interfaceType>ORCHESTRATION</interfaceType>
+			<interfaceType>MANAGEMENT</interfaceType>
+			<utilizationType>SHARED</utilizationType>
+			<reservationTime>IMMEDIATE</reservationTime>
+			<isCustomReservationTime>false</isCustomReservationTime>
+			<icon/>
+			<defaultImageAttach/>
+			<defaultConfigAttach/>
+			<nestedTemplates>
+				<nestedTemplate>
+					<id>97fd543d-000a-4245-9af4-6dc84bfaa7cf</id>
+				</nestedTemplate>
+			</nestedTemplates>
+		</template>
+		<template>
+			<id>97fd543d-000a-4245-9af4-6dc84bfaa7cf</id>
+			<revisionId>97fd543d-000a-4245-9af4-6dc84bfaa7cf</revisionId>
+			<name>T2</name>
+			<description></description>
+			<isTemplate>true</isTemplate>
+			<type>DEVICE</type>
+			<interfaceType>MANAGEMENT</interfaceType>
 			<utilizationType>SHARED</utilizationType>
 			<reservationTime>IMMEDIATE</reservationTime>
 			<isCustomReservationTime>false</isCustomReservationTime>
@@ -20,6 +38,40 @@
 		</template>
 	</templates>
 	<orchestratedResources/>
-	<abstractResources/>
-	<topologies/>
+	<abstractResources>
+		<abstractResource>
+			<id>1c707dd9-95d1-45a6-b155-3e8ff2365804</id>
+			<type>DEVICE</type>
+			<name>T1</name>
+			<description></description>
+			<condition>template[T1]</condition>
+			<reservationTime>IMMEDIATE</reservationTime>
+			<isPublic>true</isPublic>
+			<icon/>
+			<nestedResources>
+				<abstractResource>
+					<id>25c3e05f-0371-4ae3-ad51-a20237890147</id>
+					<type>DEVICE</type>
+					<name>T2</name>
+					<description></description>
+					<condition>template[T2]</condition>
+					<reservationTime>IMMEDIATE</reservationTime>
+					<isPublic>true</isPublic>
+					<referencedTemplateId>97fd543d-000a-4245-9af4-6dc84bfaa7cf</referencedTemplateId>
+					<icon/>
+				</abstractResource>
+			</nestedResources>
+		</abstractResource>
+	</abstractResources>
+	<topologies>
+		<topology>
+			<name>Runlist Top</name>
+			<versionId>14a2bd15-9c05-492c-bc69-efb8a520dd4e</versionId>
+			<attachment>
+				<id>7d4507e3-3d61-4f03-8ae8-6e36ef854818</id>
+				<name>Runlist Top</name>
+				<contentType>application/xml</contentType>
+			</attachment>
+		</topology>
+	</topologies>
 </inventory>
